@@ -2,55 +2,169 @@
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>زوم و لینک</title>
+<title>زوم روی عکس</title>
 <style>
   body {
     font-family: sans-serif;
-    background: #f9f9f9;
     text-align: center;
-    padding: 40px;
+    background-color: #f8f8f8;
   }
 
-  h2 {
-    margin-bottom: 25px;
-  }
-
-  .zoomable {
+  .thumbnail {
     width: 300px;
-    max-width: 90%;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: 0.3s;
     border-radius: 10px;
-    transition: transform 0.4s ease;
-    cursor: zoom-in;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 
-  .zoomed {
-    transform: scale(1.8);
-    cursor: zoom-out;
+  .thumbnail:hover {
+    opacity: 0.8;
+  }
+
+  .overlay {
+    position: fixed;
+    display: none;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+  }
+
+  .close-btn {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
 
-<h2>روی عکس کلیک کن تا زوم شود — دوبار کلیک کن تا وارد لینک شوی</h2>
+<h2>روی عکس کلیک کن تا زوم شود</h2>
 
-<!-- 🖼 فقط لینک را در href عوض کن -->
-<img src="photo.jpg" alt="عکس شما" id="zoomImg" class="zoomable">
+<!-- اینجا فقط اسم عکس را عوض کن -->
+<img src="<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>زوم روی عکس</title>
+<style>
+  body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f8f8f8;
+  }
+
+  .thumbnail {
+    width: 300px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+  }
+
+  .thumbnail:hover {
+    opacity: 0.8;
+  }
+
+  .overlay {
+    position: fixed;
+    display: none;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+  }
+
+  .close-btn {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>روی عکس کلیک کن تا زوم شود</h2>
+
+<!-- اینجا فقط اسم عکس را عوض کن -->
+<img src="bac(2).png?v=3.png" alt="عکس من" class="thumbnail" id="myImg">
+
+<div class="overlay" id="overlay">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <img id="zoomedImg" src="bac(2).png?v=3.png">
+</div>
 
 <script>
-  const img = document.getElementById('zoomImg');
-  const link = "https://editwithbilal.my.canva.site/you-can-enjoy-your-best-experience-with-this-product-810-x-1440-px/"; // 👈 اینجا لینک خودت را بگذار
+  const thumbnail = document.getElementById('myImg');
+  const overlay = document.getElementById('overlay');
+  const zoomedImg = document.getElementById('zoomedImg');
+  const closeBtn = document.getElementById('closeBtn');
 
-  // یک‌کلیک برای زوم
-  img.addEventListener('click', function(e) {
-    e.preventDefault();
-    img.classList.toggle('zoomed');
+  thumbnail.addEventListener('click', function() {
+    zoomedImg.src = this.src;
+    overlay.style.display = 'flex';
   });
 
-  // دوبار کلیک برای رفتن به لینک (در همان صفحه)
-  img.addEventListener('dblclick', function(e) {
-    window.location.href = link; https://editwithbilal.my.canva.site/you-can-enjoy-your-best-experience-with-this-product-810-x-1440-px// 👈 در همان صفحه باز می‌شود
+  closeBtn.addEventListener('click', function() {
+    overlay.style.display = 'none';
+  });
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
+" alt="bac(2).png?v=3.png" class="thumbnail" id="myImg">
+
+<div class="overlay" id="overlay">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <img id="zoomedImg" src="bac(2).png?v=3.png">
+</div>
+
+<script>
+  const thumbnail = document.getElementById('myImg');
+  const overlay = document.getElementById('overlay');
+  const zoomedImg = document.getElementById('zoomedImg');
+  const closeBtn = document.getElementById('closeBtn');
+
+  thumbnail.addEventListener('click', function() {
+    zoomedImg.src = this.src;
+    overlay.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', function() {
+    overlay.style.display = 'none';
+  });
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.style.display = 'none';
   });
 </script>
 
